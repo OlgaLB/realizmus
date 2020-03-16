@@ -57,7 +57,7 @@ https://github.com/Runscope/healthcheck
 ### Endpoints
 
 To run healthcheck use the following endpoint:  
-# /healthcheck'  
+# /healthcheck
 method: 'GET'  
 input parameter: None  
 output parameter: str  
