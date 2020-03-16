@@ -5,6 +5,20 @@ MIN_FIB_VALUE = 2
 
 
 def fibonacci(number_from, number_to):
+    """Create array of Fibonacci numbers between (inclusive) number_from and number_to.
+
+        Parameters
+        ----------
+        number_from : int
+            Min value.
+        number_to: int
+            Max value.
+
+        Returns:
+        ----------
+        array of int
+            Array of Fibonacci numbers between (inclusive) number_from and number_to.
+    """
     previous_value = 0
     result = []
     value = 1
@@ -23,6 +37,20 @@ def fibonacci(number_from, number_to):
 
 
 def find_array(value, array):
+    """Finds array of combinations of array parameter up to value.
+
+        Parameters
+        ----------
+        value : int
+            Given number, up to which combinations to be found.
+        array: array of int
+            Array of number to search in.
+
+        Returns:
+        ----------
+        array of arrays of int
+            Array of unique array combinations.
+    """
     if value < MIN_FIB_VALUE:
         return []
     
@@ -56,4 +84,16 @@ def find_array(value, array):
 
 
 def create_series(number):
+    """Finds array of combinations up to number from Fibonacci array between (inclusive) MIN_FIB_VALUE and number.
+
+        Parameters
+        ----------
+        number : int
+            Given number, up to which combinations to be found.
+        
+        Returns:
+        ----------
+        array of arrays of int
+            Array of unique array combinations.
+    """
     return find_array(number, fibonacci(MIN_FIB_VALUE, number))
