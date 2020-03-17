@@ -7,7 +7,7 @@ from lib.fibonacci_metric import Fibonacci_Metric
 from lib.credentials import Connection
 
 
-def create_database(filename):
+def create_test_database(filename):
     """Read queries from file and run then with MySQL.
        
        Parameters
@@ -31,7 +31,7 @@ def create_database(filename):
     conn.close()
 
 
-def populate_table(request, response):
+def populate_test_table(request, response):
     """Populate table (fibonacci_metrics) by requests and responses.
 
         Parameters
@@ -41,7 +41,6 @@ def populate_table(request, response):
         response: int
             Response code.
     """
-    create_database(os.path.join('db', 'fibonacchi_db_v1.0.0.sql'))
     conn = mysql.connector.connect(user=Connection.MYSQL_USER, password=Connection.MYSQL_PASSWORD,
                               host=Connection.MYSQL_HOST,
                               database=Connection.MYSQL_DB)
