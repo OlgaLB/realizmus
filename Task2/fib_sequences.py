@@ -20,63 +20,63 @@ def fibonacci(number_from, number_to):
             Array of Fibonacci numbers between (inclusive) number_from and number_to.
     """
     previous_value = 0
-    result = []
-    value = 1
+    fibonacci_values = []
+    current_value = 1
  
     while True:
-        temp_value = value
-        value += previous_value
+        temp_value = current_value
+        current_value += previous_value
         previous_value = temp_value
-        if value < number_from:
+        if current_value < number_from:
             continue
-        result.append(value)
-        if (value + previous_value > number_to):
+        fibonacci_values.append(current_value)
+        if (current_value + previous_value > number_to):
             break
 
-    return result
+    return fibonacci_values
 
 
-def find_array(value, array):
-    """Finds array of combinations of array parameter up to value.
+def find_array(maximum_value, search_array):
+    """Finds array of combinations of search_array parameter up to maximum_value.
 
         Parameters
         ----------
-        value : int
+        maximum_value : int
             Given number, up to which combinations to be found.
-        array: array of int
-            Array of number to search in.
+        search_array: array of int
+            Array of numbers to search in.
 
         Returns:
         ----------
         array of arrays of int
             Array of unique array combinations.
     """
-    if value < MIN_FIB_VALUE:
+    if maximum_value < MIN_FIB_VALUE:
         return []
     
-    return_array = []
+    combinations = []
 
-    for item in reversed(array):
+    for current_value in reversed(search_array):
 
-        if item < MIN_FIB_VALUE:
+        if current_value < MIN_FIB_VALUE:
             return []
 
-        if item == value:
-            return_array.append([item]) 
+        if current_value == maximum_value:
+            combinations.append([current_value]) 
 
-        new_value = value - item
+        new_value = maximum_value - current_value
 
-        if new_value in return_array:
+        if new_value in combinations:
             continue
    
-        temp_array = find_array(new_value, array)
+        temp_array = find_array(new_value, search_array)
         if len(temp_array) > 0:
-            return_array += list(map(lambda x: x + [item], temp_array))
+            combinations += list(map(lambda x: x + [current_value], temp_array))
     
     distinct_array = []
 
-    for sub_array in return_array:
-        sub_array.sort(reverse=True)
+    for sub_array in combinations:
+        sub_array.sort(reverse = True)
         if sub_array not in distinct_array:
             distinct_array.append(sub_array)
 
