@@ -5,7 +5,6 @@ import os
 from flask import Flask, request
 from healthcheck import HealthCheck
 
-import populate
 import fib_sequences
 
 
@@ -23,7 +22,6 @@ def form_sequences(number):
     if (number.isdigit() or number.isdecimal()):
         if int(number) <= 0:
             return str([])
-    #    # populate.populate_table(request.path, status_code)
         return str(fib_sequences.create_series(int(number)))
     else:
         return str([])
