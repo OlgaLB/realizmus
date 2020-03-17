@@ -57,14 +57,14 @@ https://github.com/Runscope/healthcheck
 ### Endpoints
 
 To run healthcheck use the following endpoint:  
-# /healthcheck
+#### /healthcheck
 method: 'GET'  
 input parameter: None  
 output parameter: str  
 Example:  
 http://127.0.0.1:5000/healthcheck  
 
-# /fib/number
+#### /fib/`<number>`
 method: 'GET'  
 input parameter: number for which arrays of Fibonacci to be counted  
 output parameter: array of int  
