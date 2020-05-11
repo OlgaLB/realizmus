@@ -3,8 +3,8 @@
 import pytest
 import requests
 import os
-
 import populate
+
 
 @pytest.fixture
 def create_db():
