@@ -2,7 +2,6 @@
 
 import os
 import mysql.connector
-
 from lib.fibonacci_metric import Fibonacci_Metric
 from lib.credentials import Connection
 
