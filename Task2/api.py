@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
 import os
-
 from flask import Flask, request
 from healthcheck import HealthCheck
-
 import fib_sequences
 
 
 app = Flask(__name__)
-
 health = HealthCheck(app, "/healthcheck")
+
 
 def health_check():
     response = requests.get('http://127.0.0.1:5000/healthcheck')
